@@ -301,6 +301,60 @@ h3 {
 }
 /*Cierra estilos de inicio*/
 
+/*Nosotros*/
+.contenido__nosotros {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    gap: 3rem;
+    margin: 3rem;
+    
+}
+.contenido__nosotros img {
+    height: 35rem;
+    width: 50rem;
+    transition: all .4s ease;
+    border-radius: 2%;
+    margin: 1rem;
+}
+.contenido__nosotros img:hover {
+    transform: scale(1.1);
+    border: .5rem;
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
+}
+.contenido__nosotros p {
+    font-size: 2rem;
+    line-height: 1.6;
+    padding-left: 2rem;
+}
+
+@media(max-width: 960px) {
+    .contenido__nosotros img {
+        height: 30rem;
+        width: 45rem;
+    }
+}
+@media(max-width: 940px) {
+    .contenido__nosotros img {
+        height: 28rem;
+        width: 40rem;
+    }
+    .contenido__nosotros p{
+        font-size: 1.5rem;
+    }
+}
+@media(max-width: 715px) {
+    .contenido__nosotros {
+    grid-template-columns: repeat(1,1fr);
+    justify-items: center;
+    }   
+    .contenido__nosotros img {
+        height: 28rem;
+        width: 40rem;
+    }
+}
+/*Cierra Nosotros*/
+
 /*Servicios*/
 .titulo-cards-servicios {
     margin-bottom: 0rem;
@@ -441,4 +495,64 @@ h3 {
         box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
     }
 }
+/*Cierra servicios*/
+
+/*Contacto*/
+h1 {
+    font-size: 3rem;
+    margin-top: 7rem;
+}
+h3 {
+    margin-top: 8rem;
+}
+.contacto {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.izquierda {
+    height: 84.1vh;
+    background-image: url(/img/contacto1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.correo {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+.derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.correo img {
+    width: 45px;
+}
+.correo p {
+    font-size: 2rem;
+}
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+.redes-sociales img {
+    width: 45px;
+    margin: 1rem 3rem;
+    transition: all .3s ease-in-out;
+}
+.redes-sociales img:hover {
+    transform: scale(1.4);
+}
+@media(max-width: 600px) {
+    .contacto {
+        grid-template-columns: 0% 100%;
+    }
+}
+
+
+
+
 
