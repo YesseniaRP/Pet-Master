@@ -217,10 +217,11 @@ h3 {
       grid-template-columns: repeat(4, 1fr);  
     }
 }
-
 .cards__contenido {
-    margin: auto;
-    
+    transition: all .4s ease;
+}
+.cards__contenido:hover {
+    transform: scale(1.1);
 }
 
 .cards__contenido svg {
@@ -266,9 +267,15 @@ h3 {
 .galeria {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    row-gap: .5rem;
-    column-gap: .5rem;
-    margin: 2rem;
+    gap: 2rem;
+    margin: 2rem; 
+}
+.galeria img {
+    transition: all .4s ease;
+    border-radius: 2%;
+}
+.galeria img:hover{
+    transform: scale(1.1);
 }
 
 @media(max-width: 768px) {
@@ -360,7 +367,7 @@ h3 {
     margin-bottom: 0rem;
 }
 .cards__servicios {
-    height: 71vh;
+    height: 71.5vh;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
