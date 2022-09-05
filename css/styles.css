@@ -4,6 +4,7 @@
     --secundario: #f75462;
     --blanco: #fff;
     --negro: #000;
+    --gris: #8d99ae;
     --fuente: 'Poppins', sans-serif;
 }
 
@@ -534,8 +535,12 @@ h3 {
     flex-direction: column;
     align-items: center;
 }
+
 .correo img {
     width: 45px;
+}
+.correo img:hover {
+    cursor: not-allowed;
 }
 .correo p {
     font-size: 2rem;
@@ -558,7 +563,60 @@ h3 {
         grid-template-columns: 0% 100%;
     }
 }
+/*Cierra contactanos*/
 
+/*Formulario general*/
+.logo__form {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem;
+}
+.logo__form img {
+    width: 10rem;
+}
+.logo__form p {
+    font-size: 3rem;
+}
+
+.formulario {
+    padding-bottom: 2rem;
+}
+
+.formulario legend {
+    font-size: 2rem;
+}
+.formulario label {
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 1.5rem;
+}
+.formulario input:not([type="submit"]),
+textarea,
+select {
+    padding: 1rem;
+    width: 100%;
+    display: block;
+    border-radius: 1rem;
+    border: 1px solid var(--gris);
+}
+.formulario input:last-child {
+    display: flex;
+    align-items: center;
+}
+.formulario input:hover {
+    color: var(--negro);
+    cursor: pointer;
+    transition: all .4s ease;
+}
+.enviar {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
+}
+
+/*Formulario Rescate*/
 
 
 
