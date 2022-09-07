@@ -6,7 +6,7 @@ Proyecto Ciclo 3 Misión Tic
 
 # Datos de conexion a base de datos compartida
 
-Host: mariadb-87531-0.cloudclusters.net
-Port: 10011
-username: proyectopet
-contraseña: proyectopet.
+- Host: mariadb-87531-0.cloudclusters.net
+- Port: 10011
+- username: proyectopet
+- contraseña: proyectopet.
