@@ -5,7 +5,7 @@ Proyecto Ciclo 3 Misión Tic
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://petmaster.herokuapp.com/)
 
 # BACK
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://projectpet.herokuapp.com/swagger-ui/index.html)
+[![Ver Documentacion Swagger](http://jessemillar.github.io/view-in-swagger-button/button.svg)](https://projectpet.herokuapp.com/swagger-ui/index.html)
 
 
 # Datos de conexion a base de datos compartida
