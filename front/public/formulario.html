@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet-Master</title>
+    <link rel="shortcut icon" href="img/favico.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&family=Poppins:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/styles.css" as="styles">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img class="logo" src="img/logo.png" alt="Logo-clinica">
+        </a>
+
+        <nav class="navegacion">
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="contactanos.html">Contactanos</a>
+        </nav>
+    </header>
+    <div class="logo__form">
+        <img src="img/logo.png" alt="Logo form">
+        <p>Pet Master</p>
+    </div>
+
+    <h2>Ingrese los siguientes datos</h2>
+
+    <form class="formulario contenedor">
+        <fieldset>
+            <legend>Información personal</legend>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" placeholder="Ingrese su nombre" id="nombre">
+
+            <label for="email">E-mail</label>
+            <input type="email" placeholder="Ingrese su E-mail" id="email">
+
+            <label for="telefono">Teléfono</label>
+            <input type="tel" placeholder="Ingrese su teléfono" id="telefono">
+        </fieldset>
+
+        <fieldset>
+            <legend>Información de su mascota</legend>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" placeholder="Ingrese el nombre de su mascota" id="nombre">
+
+            <label for="tipo">Tipo de mascota</label>
+            <select id="tipo">
+                <option value="" disabled selected>-- Seleccione --</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Información del servicio</legend>
+
+            <label for="servicio">Escoja el servicio</label>
+            <select id="servicio">
+                <option value="" disabled selected>-- Seleccione --</option>
+                <option value="clinica">ClÍnica</option>
+                <option value="belleza">Belleza</option>
+                <option value="laboratorio">Laboratorio</option>
+            </select>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha">
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" min="08:00" max="18:00">
+
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje"></textarea>
+        </fieldset>
+        <div class="enviar">
+            <input type="submit" value="enviar" class="boton">
+        </div>
+        
+    </form>
+
+    <footer class="footer">
+        <p>Todos los derechos reservados by Pet-Master ©</p>
+    </footer>
+</body>
+</html>
