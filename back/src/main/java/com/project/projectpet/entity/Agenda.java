@@ -1,11 +1,12 @@
 package com.project.projectpet.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Builder
@@ -20,6 +21,7 @@ public class Agenda {
     private int idServicio;
     private int idClienteMascota;
     @Column(columnDefinition = "DATE")
-    private Date fechaAgenda;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDateTime fechaAgenda;
 
 }
