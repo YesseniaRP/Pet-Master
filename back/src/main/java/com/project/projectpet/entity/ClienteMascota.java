@@ -1,5 +1,6 @@
 package com.project.projectpet.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
@@ -10,8 +11,10 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 
 import javax.persistence.Entity;
-import java.util.Date;
+import javax.persistence.Table;
+import java.time.LocalDateTime;
 
+@Table
 @Entity
 @Builder
 @NoArgsConstructor
@@ -22,14 +25,22 @@ public class ClienteMascota {
 
     @Id
     private int idClienteMascota;
+    @Column
     private String nombreMascota;
+    @Column
     private String correo;
+    @Column
     private String direccion;
     @Column(columnDefinition = "DATE")
-    private Date fechaNacimientoMascota;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDateTime fechaNacimientoMascota;
+    @Column
     private String nombreCliente;
+    @Column
     private byte[] imagenMascota;
+    @Column
     private int telefono;
+    @Column
     private String descripcion;
 
 }
