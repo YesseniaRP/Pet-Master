@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@Table
+@Table(name= "cliente_mascota")
 @Entity
 @Builder
 @NoArgsConstructor

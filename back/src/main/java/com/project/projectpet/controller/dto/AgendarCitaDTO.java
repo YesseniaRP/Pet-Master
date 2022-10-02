@@ -14,7 +14,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AgendarCitaDTO implements Serializable {
-
+    Integer idAgenda;
     Integer idServicio;
     Integer idClienteMascota;
     Date fechaAgenda;

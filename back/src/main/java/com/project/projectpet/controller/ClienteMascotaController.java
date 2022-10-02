@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.rsocket.context.LocalRSocketServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +29,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequiredArgsConstructor
-@Validated
+@Component
 @RequestMapping("/v1/clientemascota")
 public class ClienteMascotaController {
 
@@ -84,9 +84,9 @@ public class ClienteMascotaController {
 
     @PostMapping(value = "/agendar-cita")
     private ResponseEntity<?> agendarCita(@Valid @RequestBody AgendarCitaDTO data) {
-        agendarCitaService.save(data);
+        AgendarCitaDTO resultado = agendarCitaService.save(data);
 
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok(resultado);
     }
 
 

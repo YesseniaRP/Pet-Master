@@ -8,6 +8,7 @@ import java.sql.Date;
 
 
 @Entity
+@Table(name= "agenda")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
