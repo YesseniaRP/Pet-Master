@@ -3,10 +3,9 @@ package com.project.projectpet.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.*;
+import java.sql.Date;
+
 
 @Entity
 @Builder
@@ -17,11 +16,13 @@ import java.time.LocalDateTime;
 public class Agenda {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAgenda;
+    @Column(name = "id_servicio")
     private int idServicio;
+    @Column(name="id_cliente_mascota")
     private int idClienteMascota;
-    @Column(columnDefinition = "DATE")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDateTime fechaAgenda;
+    @Column(name="fecha_agenda")
+    private Date fechaAgenda;
 
 }

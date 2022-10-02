@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Table
 @Entity
@@ -33,7 +34,7 @@ public class ClienteMascota {
     private String direccion;
     @Column(columnDefinition = "DATE")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDateTime fechaNacimientoMascota;
+    private Date fechaNacimientoMascota;
     @Column
     private String nombreCliente;
     @Column
