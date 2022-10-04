@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Getter
 public class Servicio {
 
+
     @Id
     private int idServicio;
     private int idClienteMascota;
