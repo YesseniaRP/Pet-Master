@@ -4,5 +4,5 @@ import com.project.projectpet.controller.dto.AgendarCitaDTO;
 import com.project.projectpet.entity.Agenda;
 
 public interface AgendarCitaService {
-    void save (AgendarCitaDTO agendarCita);
+    AgendarCitaDTO save(AgendarCitaDTO agendarCita);
 }

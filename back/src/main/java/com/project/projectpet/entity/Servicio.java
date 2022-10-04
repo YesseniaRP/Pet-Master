@@ -5,8 +5,10 @@ import lombok.*;
 import javax.persistence.Id;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "servicio")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

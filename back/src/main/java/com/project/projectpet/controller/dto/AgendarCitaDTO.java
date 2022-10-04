@@ -5,7 +5,7 @@ import lombok.*;
 
 import javax.validation.constraints.Null;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 
 @Getter
@@ -14,7 +14,8 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AgendarCitaDTO implements Serializable {
-
+    @Null
+    Integer idAgenda;
     Integer idServicio;
     Integer idClienteMascota;
     Date fechaAgenda;
