@@ -88,4 +88,11 @@ public class ClienteMascotaController {
 
         return ResponseEntity.ok(result);
     }
+
+    @PostMapping(value = "/crear-cliente-mascota")
+    private ResponseEntity<InformacionFormularioDTO> crearClienteMascota(@Valid @RequestBody InformacionFormularioDTO data) {
+            InformacionFormularioDTO result = clienteMascotaService.save(data);
+
+        return ResponseEntity.ok(result);
+    }
 }

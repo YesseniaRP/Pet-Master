@@ -6,14 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.lang.Nullable;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Null;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.sql.Date;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Table(name = "cliente_mascota")
 @Entity
@@ -25,23 +24,34 @@ import java.util.Date;
 public class ClienteMascota {
 
     @Id
-    private int idClienteMascota;
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idClienteMascota;
+
+    @Column(name = "nombre_mascota")
     private String nombreMascota;
-    @Column
+
+    @Column(name = "correo")
     private String correo;
-    @Column
+
+    @Column(name = "direccion")
     private String direccion;
-    @Column(columnDefinition = "DATE")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+
+    @Column(name = "fecha_nacimiento_mascota")
     private Date fechaNacimientoMascota;
-    @Column
+
+    @Column(name = "nombre_cliente")
     private String nombreCliente;
-    @Column
+
+    @Column(name = "imagen_mascota")
+    @Nullable
     private byte[] imagenMascota;
-    @Column
-    private int telefono;
-    @Column
+
+    @Column(name = "telefono")
+    private Integer telefono;
+
+    @Column(name = "descripcion")
     private String descripcion;
 
+    @Column(name = "tipo_mascota")
+    private String tipoMascota;
 }

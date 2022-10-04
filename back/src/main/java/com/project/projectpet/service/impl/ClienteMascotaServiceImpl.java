@@ -1,5 +1,7 @@
 package com.project.projectpet.service.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.project.projectpet.controller.dto.InformacionFormularioDTO;
 import com.project.projectpet.entity.ClienteMascota;
 import com.project.projectpet.exceptions.ClienteMascotaException;
 import com.project.projectpet.repository.ClienteMascotaRepository;
@@ -20,6 +22,15 @@ public class ClienteMascotaServiceImpl implements ClienteMascotaService {
 
     @Autowired
     private ClienteMascotaRepository clienteMascotaRepository;
+
+    private final ObjectMapper mapper = new ObjectMapper();
+
+    @Override
+    public InformacionFormularioDTO save(InformacionFormularioDTO dto) {
+        ClienteMascota clienteMascota = mapper.convertValue(dto, ClienteMascota.class);
+        ClienteMascota result = clienteMascotaRepository.save(clienteMascota);
+        return mapper.convertValue(result, InformacionFormularioDTO.class);
+    }
 
     @Override
     public List<ClienteMascota> findAll(){
