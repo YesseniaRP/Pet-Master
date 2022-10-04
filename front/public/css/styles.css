@@ -160,7 +160,7 @@ h3 {
 
 /*HERO*/
 .hero {
-    background-image: url(/img/hero2.webp);
+    background-image: url(../img/hero2.webp);
     height: 60rem;
     background-repeat: no-repeat;
     background-size: cover;
