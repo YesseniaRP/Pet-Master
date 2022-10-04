@@ -33,7 +33,7 @@ import java.util.Optional;
 @RestController
 @Component
 @RequestMapping("/v1/clientemascota")
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders = "*")
 public class ClienteMascotaController {
 
     @Autowired
