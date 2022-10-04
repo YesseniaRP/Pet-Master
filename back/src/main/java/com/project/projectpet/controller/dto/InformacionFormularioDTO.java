@@ -27,6 +27,7 @@ public class InformacionFormularioDTO {
     @Nullable
     private byte[] imagenMascota;
     private String telefono;
+    @Nullable
     private String descripcion;
     private String tipoMascota;
 }

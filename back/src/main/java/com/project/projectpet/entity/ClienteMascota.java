@@ -49,6 +49,7 @@ public class ClienteMascota {
     @Column(name = "telefono")
     private Integer telefono;
 
+    @Nullable
     @Column(name = "descripcion")
     private String descripcion;
 

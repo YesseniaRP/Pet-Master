@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet-Master</title>
     <link rel="shortcut icon" href="img/favico.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&family=Poppins:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&family=Poppins:wght@300;400;700&family=Staatliches&display=swap"
+        rel="stylesheet">
     <link rel="preload" href="css/styles.css" as="styles">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/formulario.js"></script>
 </head>
+
 <body>
     <header class="header">
         <a href="index.html">
@@ -36,11 +40,17 @@
         <fieldset>
             <legend>Información personal</legend>
 
-            <label for="nombre">Nombre</label>
-            <input type="text" placeholder="Ingrese su nombre" id="nombre">
+            <label for="nombreCliente">Nombre</label>
+            <input type="text" placeholder="Ingrese su nombre" id="nombreCliente">
 
-            <label for="email">E-mail</label>
-            <input type="email" placeholder="Ingrese su E-mail" id="email">
+            <label for="correo">E-mail</label>
+            <input type="email" placeholder="Ingrese su E-mail" id="correo">
+
+            <label for="direccion">Dirección</label>
+            <input type="text" placeholder="Ingrese su Dirección" id="direccion">
+
+            <label for="fecha">Fecha nacimiento mascota:</label>
+            <input type="date" id="fechaNacimientoMascota">
 
             <label for="telefono">Teléfono</label>
             <input type="tel" placeholder="Ingrese su teléfono" id="telefono">
@@ -50,10 +60,10 @@
             <legend>Información de su mascota</legend>
 
             <label for="nombre">Nombre</label>
-            <input type="text" placeholder="Ingrese el nombre de su mascota" id="nombre">
+            <input type="text" placeholder="Ingrese el nombre de su mascota" id="nombreMascota">
 
-            <label for="tipo">Tipo de mascota</label>
-            <select id="tipo">
+            <label for="tipoMascota">Tipo de mascota</label>
+            <select id="tipoMascota">
                 <option value="" disabled selected>-- Seleccione --</option>
                 <option value="perro">Perro</option>
                 <option value="gato">Gato</option>
@@ -81,13 +91,14 @@
             <textarea id="mensaje"></textarea>
         </fieldset>
         <div class="enviar">
-            <input type="submit" value="enviar" class="boton">
+            <button type='button' name="enviar" id="enviar" class="boton" onClick="enviarFormulario()"> Enviar </button>
         </div>
-        
+
     </form>
 
     <footer class="footer">
         <p>Todos los derechos reservados by Pet-Master ©</p>
     </footer>
 </body>
+
 </html>

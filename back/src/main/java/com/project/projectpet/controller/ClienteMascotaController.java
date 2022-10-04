@@ -1,11 +1,13 @@
 package com.project.projectpet.controller;
 
 import com.project.projectpet.controller.dto.AgendarCitaDTO;
+import com.project.projectpet.controller.dto.CrearServicioDTO;
 import com.project.projectpet.controller.dto.InformacionFormularioDTO;
 import com.project.projectpet.entity.Agenda;
 import com.project.projectpet.entity.ClienteMascota;
 import com.project.projectpet.service.AgendarCitaService;
 import com.project.projectpet.service.ClienteMascotaService;
+import com.project.projectpet.service.ServicioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -31,13 +33,15 @@ import java.util.Optional;
 @RestController
 @Component
 @RequestMapping("/v1/clientemascota")
+@CrossOrigin("*")
 public class ClienteMascotaController {
 
     @Autowired
     private ClienteMascotaService clienteMascotaService;
     @Autowired
     private AgendarCitaService agendarCitaService;
-
+    @Autowired
+    private ServicioService servicioService;
 
     @Operation(summary = "Obtiene todos los datos de la tabla ClienteMascota")
     @ApiResponses(value = {
@@ -92,6 +96,13 @@ public class ClienteMascotaController {
     @PostMapping(value = "/crear-cliente-mascota")
     private ResponseEntity<InformacionFormularioDTO> crearClienteMascota(@Valid @RequestBody InformacionFormularioDTO data) {
             InformacionFormularioDTO result = clienteMascotaService.save(data);
+
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping(value = "/crear-servicio")
+    private ResponseEntity<CrearServicioDTO> crearServicio(@Valid @RequestBody CrearServicioDTO data) {
+        CrearServicioDTO result = servicioService.save(data);
 
         return ResponseEntity.ok(result);
     }
