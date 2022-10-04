@@ -1,3 +1,6 @@
+const HOST_LOCAL = "http://localhost:8080/v1/clientemascota/";
+const HOST = "https://projectpet.herokuapp.com/";
+
 var nombreMascota;
 var correo;
 var direccion;
@@ -38,7 +41,7 @@ function enviarFormulario() {
         tipoMascota: tipoMascota
     };
 
-    fetch('http://localhost:8080/v1/clientemascota/crear-cliente-mascota', {
+    fetch(HOST+'crear-cliente-mascota', {
         method: "POST",
         body: JSON.stringify(dataCrearClienteMascota),
         headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -55,7 +58,7 @@ function consumirServicioCrearServicio(jsonClienteMascota) {
         "idClienteMascota": jsonClienteMascota.idClienteMascota,
         "tipoServicio": tipoServicio
     };
-    fetch('http://localhost:8080/v1/clientemascota/crear-servicio', {
+    fetch(HOST+'crear-servicio', {
         method: "POST",
         body: JSON.stringify(crearServicio),
         headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -73,7 +76,7 @@ function consumirServicioAgenda(jsonServicio) {
         "idClienteMascota": jsonServicio.idClienteMascota,
         "fechaAgenda": fechaConHora
     };
-    fetch('http://localhost:8080/v1/clientemascota/agendar-cita', {
+    fetch(HOST+'agendar-cita', {
         method: "POST",
         body: JSON.stringify(dataAgendarCita),
         headers: { "Content-type": "application/json; charset=UTF-8" }
