@@ -1,5 +1,5 @@
 const HOST_LOCAL = "http://localhost:8080/v1/clientemascota/";
-const HOST = "https://projectpet.herokuapp.com/";
+const HOST = "https://petmaster1.herokuapp.com/";
 
 var nombreMascota;
 var correo;
