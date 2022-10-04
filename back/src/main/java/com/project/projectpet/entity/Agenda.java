@@ -14,7 +14,6 @@ import java.util.Date;
 @AllArgsConstructor
 @Setter
 @Getter
-@Table(name = "agenda")
 public class Agenda {
 
     @Id

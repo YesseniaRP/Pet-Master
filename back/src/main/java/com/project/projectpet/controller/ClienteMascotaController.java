@@ -83,7 +83,7 @@ public class ClienteMascotaController {
     }
 
     @PostMapping(value = "/agendar-cita")
-    private ResponseEntity<?> agendarCita(@Valid @RequestBody AgendarCitaDTO data) {
+    private ResponseEntity<AgendarCitaDTO> agendarCita(@Valid @RequestBody AgendarCitaDTO data) {
         AgendarCitaDTO result = agendarCitaService.save(data);
 
         return ResponseEntity.ok(result);
