@@ -44,7 +44,7 @@ function enviarFormulario() {
     fetch(HOST+'crear-cliente-mascota', {
         method: "POST",
         body: JSON.stringify(dataCrearClienteMascota),
-        headers: { "Content-type": "application/json; charset=UTF-8" }
+        headers: { "Content-type": "application/json" }
     })
         .then(responseClienteMascota => responseClienteMascota.json())
         .then(jsonClienteMascota => {
@@ -61,7 +61,7 @@ function consumirServicioCrearServicio(jsonClienteMascota) {
     fetch(HOST+'crear-servicio', {
         method: "POST",
         body: JSON.stringify(crearServicio),
-        headers: { "Content-type": "application/json; charset=UTF-8" }
+        headers: { "Content-type": "application/json" }
     })
         .then(responseServicio => responseServicio.json())
         .then(jsonServicio => {
@@ -79,7 +79,7 @@ function consumirServicioAgenda(jsonServicio) {
     fetch(HOST+'agendar-cita', {
         method: "POST",
         body: JSON.stringify(dataAgendarCita),
-        headers: { "Content-type": "application/json; charset=UTF-8" }
+        headers: { "Content-type": "application/json" }
     })
         .then(responseAgendarCita => responseAgendarCita.json())
         .then(jsonAgendarCita => {
