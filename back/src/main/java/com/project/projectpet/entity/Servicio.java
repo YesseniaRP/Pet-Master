@@ -2,11 +2,10 @@ package com.project.projectpet.entity;
 
 import lombok.*;
 
-import javax.persistence.Id;
-
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "servicio")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,9 +13,15 @@ import javax.persistence.Entity;
 @Getter
 public class Servicio {
 
+
     @Id
-    private int idServicio;
-    private int idClienteMascota;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idServicio;
+
+    @Column(name = "id_cliente_mascota")
+    private Integer idClienteMascota;
+
+    @Column(name = "tipo_servicio")
     private String tipoServicio;
 
 }

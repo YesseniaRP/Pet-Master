@@ -1,28 +1,33 @@
 package com.project.projectpet.controller.dto;
 
 import lombok.*;
+import reactor.util.annotation.Nullable;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.Date;
 
-@Builder
+@Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class InformacionFormularioDTO {
 
-    @NotNull
-    @Size(min = 2, max = 15)
-    private String nombrePersona;
-    private String emailPersona;
-    private String telefonoPersona;
+    @Nullable
+    private Integer idClienteMascota;
     private String nombreMascota;
-    private String tipoMAscota;
-    private String tipoServicio;
-    private String fechaServicio;
-    private String hora;
-    private String mensaje;
+    private String correo;
+    private String direccion;
+    private Date fechaNacimientoMascota;
+    private String nombreCliente;
+    @Nullable
+    private byte[] imagenMascota;
+    private String telefono;
+    @Nullable
+    private String descripcion;
+    private String tipoMascota;
 }
