@@ -1,7 +1,7 @@
 import cors from 'cors';
 // create an express app
-let express = require("express")
-let app = express()
+const express = require("express")
+const app = express()
 
 // use the express-static middleware
 app.use(express.static("public"))
