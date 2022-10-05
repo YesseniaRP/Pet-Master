@@ -160,7 +160,11 @@ h3 {
 
 /*HERO*/
 .hero {
+<<<<<<<< HEAD:front/css/styles.css
+    background-image: url(/img/hero2.webp);
+========
     background-image: url(../img/hero2.webp);
+>>>>>>>> origin/main:front/public/css/styles.css
     height: 60rem;
     background-repeat: no-repeat;
     background-size: cover;
