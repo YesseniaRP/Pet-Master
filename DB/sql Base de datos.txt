@@ -1,0 +1,38 @@
+CREATE TABLE `cliente_mascota` (
+	`id_cliente_mascota` INT(11) NOT NULL,
+	`nombre_mascota` VARCHAR(45) NOT NULL COLLATE 'latin1_swedish_ci',
+	`correo` VARCHAR(45) NOT NULL COLLATE 'latin1_swedish_ci',
+	`direccion` VARCHAR(45) NOT NULL COLLATE 'latin1_swedish_ci',
+	`fecha_nacimiento_mascota` DATE NULL DEFAULT NULL,
+	`nombre_cliente` VARCHAR(45) NOT NULL COLLATE 'latin1_swedish_ci',
+	`imagen_mascota` BLOB NULL DEFAULT NULL,
+	`telefono` INT(11) NOT NULL,
+	PRIMARY KEY (`id_cliente_mascota`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `agenda` (
+	`id_agenda` INT(11) NOT NULL,
+	`id_servicio` INT(11) NOT NULL,
+	`fecha_agenda` DATETIME NOT NULL,
+	PRIMARY KEY (`id_agenda`) USING BTREE,
+	INDEX `FK_servicio` (`id_servicio`) USING BTREE,
+	CONSTRAINT `FK_servicio` FOREIGN KEY (`id_servicio`) REFERENCES `petmaster`.`servicio` (`id_servicio`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `servicio` (
+	`id_servicio` INT(11) NOT NULL,
+	`id_cliente_mascota` INT(11) NOT NULL,
+	`tipo_servicio` VARCHAR(45) NOT NULL COLLATE 'latin1_swedish_ci',
+	PRIMARY KEY (`id_servicio`) USING BTREE,
+	INDEX `FK_cliente_mascota` (`id_cliente_mascota`) USING BTREE,
+	CONSTRAINT `FK_cliente_mascota` FOREIGN KEY (`id_cliente_mascota`) REFERENCES `petmaster`.`cliente_mascota` (`id_cliente_mascota`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
