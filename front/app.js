@@ -1,11 +1,9 @@
-import cors from 'cors';
 // create an express app
 const express = require("express")
 const app = express()
 
 // use the express-static middleware
 app.use(express.static("public"))
-app.use(cors());
 
 // define the first route
 app.get("/", function (req, res) {
