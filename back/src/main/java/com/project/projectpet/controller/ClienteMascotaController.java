@@ -3,7 +3,6 @@ package com.project.projectpet.controller;
 import com.project.projectpet.controller.dto.AgendarCitaDTO;
 import com.project.projectpet.controller.dto.CrearServicioDTO;
 import com.project.projectpet.controller.dto.InformacionFormularioDTO;
-import com.project.projectpet.entity.Agenda;
 import com.project.projectpet.entity.ClienteMascota;
 import com.project.projectpet.service.AgendarCitaService;
 import com.project.projectpet.service.ClienteMascotaService;
@@ -13,31 +12,20 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.rsocket.context.LocalRSocketServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @Component
 @RequestMapping("/v1/clientemascota")
-<<<<<<< HEAD
 @CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders = "*")
-=======
-@CrossOrigin(origins="*")
->>>>>>> e99d7a7329d698e19148d6c54b92c5def95a1689
 public class ClienteMascotaController {
 
     @Autowired
@@ -55,6 +43,7 @@ public class ClienteMascotaController {
             @ApiResponse(responseCode = "500", description = "Error interno",
                     content = @Content)})
     @GetMapping("/allClientesMascotas")
+    @CrossOrigin(origins = "*")      
     ResponseEntity<List<ClienteMascota>> all() {
         return new ResponseEntity<List<ClienteMascota>>(clienteMascotaService.findAll(), null, HttpStatus.OK);
     }
@@ -67,18 +56,21 @@ public class ClienteMascotaController {
             @ApiResponse(responseCode = "500", description = "Error interno",
                     content = @Content)})
     @PostMapping("/asignarCitas")
+    @CrossOrigin(origins = "*")      
     ResponseEntity<InformacionFormularioDTO> asignarCitas(@Valid @RequestBody InformacionFormularioDTO infoFormulario) {
 
         return new ResponseEntity<InformacionFormularioDTO>(infoFormulario, null, HttpStatus.OK);
     }
 
     @DeleteMapping("/eliminar/{id}")
+    @CrossOrigin(origins = "*")      
     ResponseEntity<HttpStatus> delete(@PathVariable("id") Integer id) {
         clienteMascotaService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PostMapping("/Crear")
+    @CrossOrigin(origins = "*")      
     public ClienteMascota guardar(@RequestBody @Valid ClienteMascota clienteMascota) {
 
         return clienteMascotaService.create(clienteMascota);
@@ -86,11 +78,13 @@ public class ClienteMascotaController {
     }
 
     @GetMapping(value = "/(id)")
+    @CrossOrigin(origins = "*")      
     private ResponseEntity<Optional<ClienteMascota>> listarclientes(@PathVariable("id") long id) {
         return ResponseEntity.ok(clienteMascotaService.findById((int) id));
     }
 
     @PostMapping(value = "/agendar-cita")
+    @CrossOrigin(origins = "*")      
     private ResponseEntity<AgendarCitaDTO> agendarCita(@Valid @RequestBody AgendarCitaDTO data) {
         AgendarCitaDTO result = agendarCitaService.save(data);
 
@@ -98,6 +92,7 @@ public class ClienteMascotaController {
     }
 
     @PostMapping(value = "/crear-cliente-mascota")
+    @CrossOrigin(origins = "*")      
     private ResponseEntity<InformacionFormularioDTO> crearClienteMascota(@Valid @RequestBody InformacionFormularioDTO data) {
             InformacionFormularioDTO result = clienteMascotaService.save(data);
 
@@ -105,6 +100,7 @@ public class ClienteMascotaController {
     }
 
     @PostMapping(value = "/crear-servicio")
+    @CrossOrigin(origins = "*")      
     private ResponseEntity<CrearServicioDTO> crearServicio(@Valid @RequestBody CrearServicioDTO data) {
         CrearServicioDTO result = servicioService.save(data);
 
