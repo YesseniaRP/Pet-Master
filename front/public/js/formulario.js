@@ -15,6 +15,7 @@ var fechaAgenda;
 var horaAgenda;
 var fechaConHora;
 
+
 function enviarFormulario() {
 
     nombreMascota = document.getElementById('nombreMascota').value;
@@ -41,17 +42,40 @@ function enviarFormulario() {
         tipoMascota: tipoMascota
     };
 
-    fetch(HOST+'crear-cliente-mascota', {
-        method: "POST",
-        body: JSON.stringify(dataCrearClienteMascota),
-        headers: { "Content-type": "application/json", "Access-Control-Allow-Origin": "*"  }
-    })
-        .then(responseClienteMascota => responseClienteMascota.json())
-        .then(jsonClienteMascota => {
-            consumirServicioCrearServicio(jsonClienteMascota)
-        })
-        .catch(err3 => console.log(err3));
+
+
+    Swal.fire({
+        title: 'Está seguro que quiere enviar y confirmar la cita?',
+        showDenyButton: true,
+        confirmButtonText: 'Continuar',
+        denyButtonText: `Cancelar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            fetch(HOST+'crear-cliente-mascota', {
+                method: "POST",
+                body: JSON.stringify(dataCrearClienteMascota),
+                headers: { "Content-type": "application/json", "Access-Control-Allow-Origin": "*"  }
+            })
+                .then(responseClienteMascota => responseClienteMascota.json())
+                .then(jsonClienteMascota => {
+                    Swal.showLoading();
+                    console.log(jsonClienteMascota.data);
+                    consumirServicioCrearServicio(jsonClienteMascota);
+                })
+                .catch(err3 => {
+                    Swal.hideLoading();
+                    Swal.fire('Error en el servicio!', '', 'error')});
+            
+          
+        } else if (result.isDenied) {
+          Swal.fire('Solicitud cancelada', '', 'info')
+        }
+      })
+
+
 }
+
 
 function consumirServicioCrearServicio(jsonClienteMascota) {
     var crearServicio = {
@@ -84,6 +108,15 @@ function consumirServicioAgenda(jsonServicio) {
         .then(responseAgendarCita => responseAgendarCita.json())
         .then(jsonAgendarCita => {
             console.log(jsonAgendarCita)
+            if(jsonAgendarCita.status === 400 && jsonAgendarCita.status === 500 ){
+                Swal.hideLoading();
+                Swal.fire('Error en el servicio!', '', 'error')
+            }else{
+                Swal.hideLoading();
+                Swal.fire('Solicitud Enviada', '', 'success')
+            }
         })
-        .catch(err1 => console.log(err1));
+        .catch(err1 => {
+            Swal.hideLoading();
+            Swal.fire('Error en el servicio!', '', 'error')});
 }
