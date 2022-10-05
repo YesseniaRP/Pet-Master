@@ -47,7 +47,7 @@ public class ClienteMascota {
     private byte[] imagenMascota;
 
     @Column(name = "telefono")
-    private Integer telefono;
+    private String telefono;
 
     @Nullable
     @Column(name = "descripcion")
