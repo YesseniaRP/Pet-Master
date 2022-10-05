@@ -25,7 +25,7 @@ import java.util.Optional;
 @RestController
 @Component
 @RequestMapping("/v1/clientemascota")
-@CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders = "*")
+@CrossOrigin
 public class ClienteMascotaController {
 
     @Autowired
@@ -42,8 +42,7 @@ public class ClienteMascotaController {
                             schema = @Schema(implementation = ClienteMascota.class))}),
             @ApiResponse(responseCode = "500", description = "Error interno",
                     content = @Content)})
-    @GetMapping("/allClientesMascotas")
-    @CrossOrigin(origins = "*")      
+    @GetMapping("/allClientesMascotas")  
     ResponseEntity<List<ClienteMascota>> all() {
         return new ResponseEntity<List<ClienteMascota>>(clienteMascotaService.findAll(), null, HttpStatus.OK);
     }
@@ -55,52 +54,45 @@ public class ClienteMascotaController {
                             schema = @Schema(implementation = InformacionFormularioDTO.class))}),
             @ApiResponse(responseCode = "500", description = "Error interno",
                     content = @Content)})
-    @PostMapping("/asignarCitas")
-    @CrossOrigin(origins = "*")      
+    @PostMapping("/asignarCitas")   
     ResponseEntity<InformacionFormularioDTO> asignarCitas(@Valid @RequestBody InformacionFormularioDTO infoFormulario) {
 
         return new ResponseEntity<InformacionFormularioDTO>(infoFormulario, null, HttpStatus.OK);
     }
 
-    @DeleteMapping("/eliminar/{id}")
-    @CrossOrigin(origins = "*")      
+    @DeleteMapping("/eliminar/{id}")   
     ResponseEntity<HttpStatus> delete(@PathVariable("id") Integer id) {
         clienteMascotaService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/Crear")
-    @CrossOrigin(origins = "*")      
+    @PostMapping("/Crear")    
     public ClienteMascota guardar(@RequestBody @Valid ClienteMascota clienteMascota) {
 
         return clienteMascotaService.create(clienteMascota);
 
     }
 
-    @GetMapping(value = "/(id)")
-    @CrossOrigin(origins = "*")      
+    @GetMapping(value = "/(id)")    
     private ResponseEntity<Optional<ClienteMascota>> listarclientes(@PathVariable("id") long id) {
         return ResponseEntity.ok(clienteMascotaService.findById((int) id));
     }
 
     @PostMapping(value = "/agendar-cita")
-    @CrossOrigin(origins = "*")      
     private ResponseEntity<AgendarCitaDTO> agendarCita(@Valid @RequestBody AgendarCitaDTO data) {
         AgendarCitaDTO result = agendarCitaService.save(data);
 
         return ResponseEntity.ok(result);
     }
 
-    @PostMapping(value = "/crear-cliente-mascota")
-    @CrossOrigin(origins = "*")      
+    @PostMapping(value = "/crear-cliente-mascota")   
     private ResponseEntity<InformacionFormularioDTO> crearClienteMascota(@Valid @RequestBody InformacionFormularioDTO data) {
             InformacionFormularioDTO result = clienteMascotaService.save(data);
 
         return ResponseEntity.ok(result);
     }
 
-    @PostMapping(value = "/crear-servicio")
-    @CrossOrigin(origins = "*")      
+    @PostMapping(value = "/crear-servicio")   
     private ResponseEntity<CrearServicioDTO> crearServicio(@Valid @RequestBody CrearServicioDTO data) {
         CrearServicioDTO result = servicioService.save(data);
 
