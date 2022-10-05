@@ -1,5 +1,5 @@
 const HOST_LOCAL = "http://localhost:8080/v1/clientemascota/";
-const HOST = "https://petmaster1.herokuapp.com/";
+const HOST = "https://petmaster1.herokuapp.com/v1/clientemascota/";
 
 var nombreMascota;
 var correo;
@@ -55,7 +55,7 @@ function enviarFormulario() {
             fetch(HOST+'crear-cliente-mascota', {
                 method: "POST",
                 body: JSON.stringify(dataCrearClienteMascota),
-                headers: { "Content-type": "application/json", "Access-Control-Allow-Origin": "*"  }
+                headers: { "Content-type": "application/json" }
             })
                 .then(responseClienteMascota => responseClienteMascota.json())
                 .then(jsonClienteMascota => {
@@ -85,7 +85,7 @@ function consumirServicioCrearServicio(jsonClienteMascota) {
     fetch(HOST+'crear-servicio', {
         method: "POST",
         body: JSON.stringify(crearServicio),
-        headers: { "Content-type": "application/json", "Access-Control-Allow-Origin": "*"  }
+        headers: { "Content-type": "application/json"}
     })
         .then(responseServicio => responseServicio.json())
         .then(jsonServicio => {
@@ -103,12 +103,12 @@ function consumirServicioAgenda(jsonServicio) {
     fetch(HOST+'agendar-cita', {
         method: "POST",
         body: JSON.stringify(dataAgendarCita),
-        headers: { "Content-type": "application/json", "Access-Control-Allow-Origin": "*"  }
+        headers: { "Content-type": "application/json" }
     })
         .then(responseAgendarCita => responseAgendarCita.json())
         .then(jsonAgendarCita => {
             console.log(jsonAgendarCita)
-            if(jsonAgendarCita.status === 400 && jsonAgendarCita.status === 500 ){
+            if(jsonAgendarCita.status === 400 || jsonAgendarCita.status === 500 ){
                 Swal.hideLoading();
                 Swal.fire('Error en el servicio!', '', 'error')
             }else{
