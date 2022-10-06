@@ -42,6 +42,35 @@ function enviarFormulario() {
         tipoMascota: tipoMascota
     };
 
+    console.log(dataCrearClienteMascota);
+
+    for (const property in dataCrearClienteMascota) {
+        if(dataCrearClienteMascota[property] === ""){
+            Swal.fire(
+                'Formulario incompleto',
+                `llene el campo ${property}`,
+                'error'
+              )
+            return;
+        }
+    }
+
+    var agenda = {
+        fecha: fechaAgenda,
+        hora: horaAgenda,
+        tipo_Servicio: tipoServicio
+    }
+
+    for (const property in agenda) {
+        if(agenda[property] === ""){
+            Swal.fire(
+                'Formulario incompleto',
+                `llene el campo ${property}`,
+                'error'
+              )
+            return;
+        }
+    }
 
 
     Swal.fire({
